@@ -1,0 +1,18 @@
+#container {
+    border-style: solid;
+    height: 700px;
+    width: 700px;
+    display: grid;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    border: solid black 1px;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
