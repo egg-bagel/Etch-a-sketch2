@@ -1,13 +1,14 @@
 const container = document.querySelector("#container");
+const reset = document.querySelector("#reset");
 
-//Creates a 16x16 grid
+//Creates a grid with a specified number of squares
 
-function createGrid() {
-    for (let i=0; i<16; i++) {
+function createGrid(numberOfSquares) {
+    for (let i=0; i<numberOfSquares; i++) {
         let row = document.createElement("div");
         container.appendChild(row);
         row.classList.add("row");
-        for (let j=0; j<16; j++) {
+        for (let j=0; j<numberOfSquares; j++) {
             let cell = document.createElement("div");
             row.appendChild(cell);
             cell.classList.add("cell");
@@ -26,5 +27,21 @@ function draw() {
     })
 }
 
-createGrid();
+createGrid(16);
 draw();
+
+//Erases and resets the etch-a-sketch with a specified number of squares per side
+
+reset.addEventListener("click", () => {
+    let squaresPerSide = prompt("How many squares per side?");
+    let cells = container.querySelectorAll(".cell");
+    let rows = container.querySelectorAll(".row");
+    rows.forEach(row => {
+        cells.forEach(cell => {
+            cell.remove();
+        })
+        row.remove();
+    })
+    createGrid(squaresPerSide);
+    draw();
+})
