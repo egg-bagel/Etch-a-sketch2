@@ -62,10 +62,24 @@ function draw() {
 createGrid(16);
 draw();
 
+//Prompts user for number of squares per side and ensures that input is valid.
+
+function promptForNumber() {
+    let newNumber = parseInt(prompt("How many squares per side?"));
+
+    if ((newNumber < 10) || (newNumber > 100) || (isNaN(newNumber))) {
+        do {
+            newNumber = parseInt(prompt("Invalid input, pick a number between 10 and 100"));
+        } while ((newNumber < 10) || (newNumber > 100) || (isNaN(newNumber)));
+    }
+
+    return newNumber;
+}
+
 //Erases and resets the etch-a-sketch with a specified number of squares per side
 
 reset.addEventListener("click", () => {
-    let squaresPerSide = prompt("How many squares per side?");
+    let squaresPerSide = promptForNumber();
     let cells = container.querySelectorAll(".cell");
     let rows = container.querySelectorAll(".row");
     rows.forEach(row => {

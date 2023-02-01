@@ -1,8 +1,31 @@
+body {
+    background-color: #ffe4e1;
+}
+
 #container {
-    border-style: solid;
-    height: 700px;
-    width: 700px;
+    border-style: groove;
+    height: 550px;
+    width: 550px;
+    background-color: white;
     display: grid;
+    margin: auto;
+}
+
+#buttondiv {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#reset {
+    height: 30px;
+    width: 200px;
+    background-color: #135553;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
 .row {
@@ -11,7 +34,6 @@
 }
 
 .cell {
-    border: solid black 1px;
     display: flex;
     align-items: stretch;
     width: 100%;
